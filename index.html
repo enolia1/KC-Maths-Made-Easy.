@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,8 +39,14 @@ h1{font-size:clamp(29px,7vw,42px);line-height:1.04;margin:9px 0;position:relativ
 .c7{background:#ffd7dc}.c8{background:#cce7ff}.c9{background:#fff0a8}.c10{background:#e2e9ff}.c11{background:#d5ffe9}.c12{background:#ffe0c4}
 .hidden{display:none!important}
 
-/* Hide a Netlify badge if it is included in the page */
-.netlify-badge,#netlify-badge,[data-netlify-badge],a[href*="netlify.com"],iframe[src*="netlify.com"]{display:none!important}
+/* Hide common Netlify badge elements without hiding every Netlify link */
+.netlify-badge,
+#netlify-badge,
+[data-netlify-badge],
+a[href*="netlify.com"][aria-label*="badge"],
+a[href*="netlify.app"][aria-label*="badge"]{
+  display:none!important;
+}
 
 .back{border:0;background:#fff;color:#1949a1;padding:11px 15px;border-radius:14px;box-shadow:0 4px 0 #c9d8ec;cursor:pointer;font-weight:1000;margin-bottom:18px}
 .grade-head{padding:22px;border:3px solid white;border-radius:26px;background:linear-gradient(135deg,#ffdf59,#ffb84c);box-shadow:0 5px 0 #e9ce7a;margin-bottom:18px}
@@ -60,28 +67,64 @@ footer{text-align:center;color:#6a7b98;font-size:11px;font-weight:700;padding:26
 </head>
 <body>
 <div class="app">
-<header><div class="logo" aria-hidden="true">KC</div><div><div class="brand">KC MATHS MADE EASY</div><div class="tagline">🌟 Learn it. Practise it. Master it!</div></div></header>
+<header>
+<div class="logo" aria-hidden="true">KC</div>
+<div>
+<div class="brand">KC MATHS MADE EASY</div>
+<div class="tagline">🌟 Learn it. Practise it. Master it!</div>
+</div>
+</header>
 <main>
 <section id="home">
-<div class="hero"><div class="sparkles">✦ ＋ ★ ÷</div><div class="eyebrow">Your colourful maths adventure</div><h1>Maths can be<br>FUN! 🎉</h1><p>Choose your grade and explore your learning space. Every big maths star starts with small steps!</p><div class="hero-badge">🇿🇦 South African CAPS · Grades R–12</div></div>
-<div class="section-title">🚀 Pick your grade!</div><p class="section-note">Choose your school grade to get started.</p>
+<div class="hero">
+<div class="sparkles">✦ ＋ ★ ÷</div>
+<div class="eyebrow">Your colourful maths adventure</div>
+<h1>Maths can be<br>FUN! 🎉</h1>
+<p>Choose your grade and explore your learning space. Every big maths star starts with small steps!</p>
+<div class="hero-badge">🇿🇦 South African CAPS · Grades R–12</div>
+</div>
+<div class="section-title">🚀 Pick your grade!</div>
+<p class="section-note">Choose your school grade to get started.</p>
 <div class="grade-grid" id="gradeGrid" aria-label="Choose a school grade"></div>
 </section>
+
 <section id="gradePage" class="hidden" aria-live="polite">
 <button class="back" id="backButton" type="button">← All grades</button>
-<div class="grade-head"><div class="eyebrow">🌈 Your learning space</div><h1 id="selectedGrade">Grade 6</h1><p id="gradeDescription">Your grade's Mathematics space.</p></div>
-<div class="section-title">🎯 What would you like to explore?</div><p class="section-note">Your maths adventure will grow as lessons are added.</p>
+<div class="grade-head">
+<div class="eyebrow">🌈 Your learning space</div>
+<h1 id="selectedGrade">Grade 6</h1>
+<p id="gradeDescription">Your grade's Mathematics space.</p>
+</div>
+<div class="section-title">🎯 What would you like to explore?</div>
+<p class="section-note">Your maths adventure will grow as lessons are added.</p>
 <div class="topic-list">
-<div class="topic"><div class="topic-icon" style="background:#d8f0ff">📚</div><div><h3>Lessons</h3><p>Friendly explanations and worked examples.</p></div><span class="status">Coming soon</span></div>
-<div class="topic"><div class="topic-icon" style="background:#fff0b5">✏️</div><div><h3>Practice time</h3><p>Try questions and learn from mistakes.</p></div><span class="status">Coming soon</span></div>
-<div class="topic"><div class="topic-icon" style="background:#d9ffe3">🏆</div><div><h3>Quizzes & challenges</h3><p>Test what you know and aim for a new best.</p></div><span class="status">Coming soon</span></div>
-<div class="topic"><div class="topic-icon" style="background:#f0e4ff">⭐</div><div><h3>My progress</h3><p>Celebrate the skills you learn along the way.</p></div><span class="status">Coming soon</span></div>
+<div class="topic">
+<div class="topic-icon" style="background:#d8f0ff">📚</div>
+<div><h3>Lessons</h3><p>Friendly explanations and worked examples.</p></div>
+<span class="status">Coming soon</span>
+</div>
+<div class="topic">
+<div class="topic-icon" style="background:#fff0b5">✏️</div>
+<div><h3>Practice time</h3><p>Try questions and learn from mistakes.</p></div>
+<span class="status">Coming soon</span>
+</div>
+<div class="topic">
+<div class="topic-icon" style="background:#d9ffe3">🏆</div>
+<div><h3>Quizzes & challenges</h3><p>Test what you know and aim for a new best.</p></div>
+<span class="status">Coming soon</span>
+</div>
+<div class="topic">
+<div class="topic-icon" style="background:#f0e4ff">⭐</div>
+<div><h3>My progress</h3><p>Celebrate the skills you learn along the way.</p></div>
+<span class="status">Coming soon</span>
+</div>
 </div>
 <div class="notice">💡 This first version is the colourful app structure. Actual lessons, games, quizzes and saved scores will be added in later versions.</div>
 </section>
 </main>
 <footer>💛 KC MATHS MADE EASY · English · Made for curious young minds</footer>
 </div>
+
 <script>
 (function(){
  const grades=[
@@ -99,20 +142,36 @@ footer{text-align:center;color:#6a7b98;font-size:11px;font-weight:700;padding:26
  {id:"11",title:"Grade 11",desc:"FET Phase",icon:"🧠",c:"c12"},
  {id:"12",title:"Grade 12",desc:"FET / Matric",icon:"🎓",c:"c3"}
  ];
- const grid=document.getElementById("gradeGrid"),home=document.getElementById("home"),page=document.getElementById("gradePage");
- const selected=document.getElementById("selectedGrade"),description=document.getElementById("gradeDescription");
+
+ const grid=document.getElementById("gradeGrid");
+ const home=document.getElementById("home");
+ const page=document.getElementById("gradePage");
+ const selected=document.getElementById("selectedGrade");
+ const description=document.getElementById("gradeDescription");
+
  grades.forEach(function(g){
-  const b=document.createElement("button");b.type="button";b.className="grade-button "+g.c;
+  const b=document.createElement("button");
+  b.type="button";
+  b.className="grade-button "+g.c;
   b.setAttribute("aria-label","Open "+g.title);
   b.innerHTML='<span class="grade-icon" aria-hidden="true">'+g.icon+'</span><div class="grade-number">'+g.id+'</div><div class="grade-label">'+g.title+'</div><div class="grade-desc">'+g.desc+'</div>';
+
   b.addEventListener("click",function(){
    selected.textContent=g.title;
    description.textContent="Welcome to your "+g.title+" maths adventure! Lessons and activities will be added in a future version.";
-   home.classList.add("hidden");page.classList.remove("hidden");window.scrollTo(0,0);
+   home.classList.add("hidden");
+   page.classList.remove("hidden");
+   window.scrollTo(0,0);
   });
+
   grid.appendChild(b);
  });
- document.getElementById("backButton").addEventListener("click",function(){page.classList.add("hidden");home.classList.remove("hidden");window.scrollTo(0,0)});
+
+ document.getElementById("backButton").addEventListener("click",function(){
+  page.classList.add("hidden");
+  home.classList.remove("hidden");
+  window.scrollTo(0,0);
+ });
 })();
 </script>
 </body>
