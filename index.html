@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1769ff">
+<title>KC MATHS MADE EASY</title>
+<style>
+:root{--blue:#1769ff;--purple:#713bdb;--pink:#ff4fa3;--yellow:#ffcf38;--green:#18b85b;--sky:#e9f8ff;--ink:#15264a;--muted:#536582;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#dff6ff 0%,#f9fbff 45%,#fff5d6 100%);color:var(--ink);font-family:"Trebuchet MS",system-ui,-apple-system,sans-serif;min-height:100vh}
+button{font:inherit}
+.app{max-width:780px;margin:auto;padding:14px 14px 30px}
+header{display:flex;align-items:center;gap:12px;padding:8px 2px 18px}
+.logo{width:56px;height:56px;flex:0 0 56px;border-radius:19px;background:linear-gradient(145deg,#ffde45,#ff9b25);border:3px solid white;box-shadow:0 5px 0 #e6a323;display:grid;place-items:center;color:#123c94;font-size:22px;font-weight:1000;transform:rotate(-4deg)}
+.brand{font-size:clamp(17px,4.5vw,23px);font-weight:1000;letter-spacing:.1px;color:#1647a5;line-height:1.1}
+.tagline{font-size:12px;font-weight:700;color:#56708f;margin-top:5px}
+.hero{position:relative;overflow:hidden;padding:23px 20px 24px;border-radius:28px;background:linear-gradient(135deg,#287aff,#7646e8);color:white;box-shadow:0 8px 0 #d0e4ff;margin-bottom:22px}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:#ffffff20}
+.hero:before{width:150px;height:150px;right:-40px;top:-55px}.hero:after{width:90px;height:90px;right:65px;bottom:-54px}
+.sparkles{font-size:23px;letter-spacing:8px;color:#ffdf48;position:relative;z-index:1}
+.eyebrow{font-size:11px;font-weight:1000;letter-spacing:1.5px;text-transform:uppercase;position:relative;z-index:1}
+h1{font-size:clamp(29px,7vw,42px);line-height:1.04;margin:9px 0;position:relative;z-index:1}
+.hero p{font-size:14px;line-height:1.55;margin:10px 0 0;max-width:540px;position:relative;z-index:1;color:#f1f5ff}
+.hero-badge{display:inline-block;margin-top:15px;padding:8px 12px;background:var(--yellow);color:#153b8a;border-radius:30px;font-size:12px;font-weight:1000;position:relative;z-index:1}
+.section-title{font-size:21px;font-weight:1000;margin:22px 0 5px;color:#173d85}
+.section-note{font-size:13px;color:var(--muted);margin:0 0 14px}
+.grade-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.grade-button{position:relative;min-height:124px;text-align:left;padding:14px;border:3px solid white;border-radius:23px;color:#172c58;cursor:pointer;box-shadow:0 5px 0 #c9d8ec;transition:transform .12s,box-shadow .12s}
+.grade-button:active{transform:translateY(3px);box-shadow:0 2px 0 #c9d8ec}
+.grade-button:focus-visible,.back:focus-visible{outline:3px solid #142d65;outline-offset:3px}
+.grade-button:hover{filter:saturate(1.08)}
+.grade-number{font-size:33px;font-weight:1000;line-height:1}
+.grade-label{font-size:13px;font-weight:1000;margin-top:8px}
+.grade-desc{font-size:11px;font-weight:700;margin-top:4px;opacity:.8}
+.grade-icon{position:absolute;right:12px;top:12px;font-size:29px}
+.c1{background:#ffe0f1}.c2{background:#d8ffdf}.c3{background:#d7f2ff}.c4{background:#ffefbd}.c5{background:#e8dcff}.c6{background:#d3f8ee}
+.c7{background:#ffd7dc}.c8{background:#cce7ff}.c9{background:#fff0a8}.c10{background:#e2e9ff}.c11{background:#d5ffe9}.c12{background:#ffe0c4}
+.hidden{display:none!important}
+.back{border:0;background:#fff;color:#1949a1;padding:11px 15px;border-radius:14px;box-shadow:0 4px 0 #c9d8ec;cursor:pointer;font-weight:1000;margin-bottom:18px}
+.grade-head{padding:22px;border:3px solid white;border-radius:26px;background:linear-gradient(135deg,#ffdf59,#ffb84c);box-shadow:0 5px 0 #e9ce7a;margin-bottom:18px}
+.grade-head h1{color:#183b86;margin:8px 0;font-size:32px}
+.grade-head p{color:#4e4a37;font-size:14px;line-height:1.5;margin:8px 0 0}
+.topic-list{display:grid;gap:11px}
+.topic{display:flex;align-items:center;gap:12px;padding:14px;border:2px solid white;border-radius:19px;background:white;box-shadow:0 4px 0 #d9e6f5}
+.topic-icon{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:24px;flex:0 0 46px}
+.topic h3{font-size:14px;margin:0 0 4px;color:#183b86}
+.topic p{font-size:12px;color:var(--muted);margin:0;line-height:1.4}
+.status{margin-left:auto;color:#6240b6;font-size:10px;font-weight:900;background:#f0eaff;border-radius:99px;padding:6px 8px;white-space:nowrap}
+.notice{margin-top:18px;padding:14px;border:2px dashed #9cb6dc;border-radius:17px;background:#f5fbff;color:#536582;font-size:12px;line-height:1.5}
+footer{text-align:center;color:#6a7b98;font-size:11px;font-weight:700;padding:26px 8px 4px}
+@media(min-width:480px){.grade-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.app{padding:20px 20px 36px}}
+@media(min-width:680px){.grade-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="logo" aria-hidden="true">KC</div><div><div class="brand">KC MATHS MADE EASY</div><div class="tagline">🌟 Learn it. Practise it. Master it!</div></div></header>
+<main>
+<section id="home">
+<div class="hero"><div class="sparkles">✦ ＋ ★ ÷</div><div class="eyebrow">Your colourful maths adventure</div><h1>Maths can be<br>FUN! 🎉</h1><p>Choose your grade and explore your learning space. Every big maths star starts with small steps!</p><div class="hero-badge">🇿🇦 South African CAPS · Grades R–12</div></div>
+<div class="section-title">🚀 Pick your grade!</div><p class="section-note">Choose your school grade to get started.</p>
+<div class="grade-grid" id="gradeGrid" aria-label="Choose a school grade"></div>
+</section>
+<section id="gradePage" class="hidden" aria-live="polite">
+<button class="back" id="backButton" type="button">← All grades</button>
+<div class="grade-head"><div class="eyebrow">🌈 Your learning space</div><h1 id="selectedGrade">Grade 6</h1><p id="gradeDescription">Your grade's Mathematics space.</p></div>
+<div class="section-title">🎯 What would you like to explore?</div><p class="section-note">Your maths adventure will grow as lessons are added.</p>
+<div class="topic-list">
+<div class="topic"><div class="topic-icon" style="background:#d8f0ff">📚</div><div><h3>Lessons</h3><p>Friendly explanations and worked examples.</p></div><span class="status">Coming soon</span></div>
+<div class="topic"><div class="topic-icon" style="background:#fff0b5">✏️</div><div><h3>Practice time</h3><p>Try questions and learn from mistakes.</p></div><span class="status">Coming soon</span></div>
+<div class="topic"><div class="topic-icon" style="background:#d9ffe3">🏆</div><div><h3>Quizzes & challenges</h3><p>Test what you know and aim for a new best.</p></div><span class="status">Coming soon</span></div>
+<div class="topic"><div class="topic-icon" style="background:#f0e4ff">⭐</div><div><h3>My progress</h3><p>Celebrate the skills you learn along the way.</p></div><span class="status">Coming soon</span></div>
+</div>
+<div class="notice">💡 This first version is the colourful app structure. Actual lessons, games, quizzes and saved scores will be added in later versions.</div>
+</section>
+</main>
+<footer>💛 KC MATHS MADE EASY · English · Made for curious young minds</footer>
+</div>
+<script>
+(function(){
+ const grades=[
+ {id:"R",title:"Grade R (Grade 0)",desc:"Little learners",icon:"🧸",c:"c1"},
+ {id:"1",title:"Grade 1",desc:"Foundation Phase",icon:"🍎",c:"c2"},
+ {id:"2",title:"Grade 2",desc:"Foundation Phase",icon:"⭐",c:"c3"},
+ {id:"3",title:"Grade 3",desc:"Foundation Phase",icon:"✏️",c:"c4"},
+ {id:"4",title:"Grade 4",desc:"Intermediate Phase",icon:"🔺",c:"c5"},
+ {id:"5",title:"Grade 5",desc:"Intermediate Phase",icon:"🌍",c:"c6"},
+ {id:"6",title:"Grade 6",desc:"Intermediate Phase",icon:"🧮",c:"c7"},
+ {id:"7",title:"Grade 7",desc:"Senior Phase",icon:"🧪",c:"c8"},
+ {id:"8",title:"Grade 8",desc:"Senior Phase",icon:"📘",c:"c9"},
+ {id:"9",title:"Grade 9",desc:"Senior Phase",icon:"📐",c:"c10"},
+ {id:"10",title:"Grade 10",desc:"FET Phase",icon:"📊",c:"c11"},
+ {id:"11",title:"Grade 11",desc:"FET Phase",icon:"🧠",c:"c12"},
+ {id:"12",title:"Grade 12",desc:"FET / Matric",icon:"🎓",c:"c3"}
+ ];
+ const grid=document.getElementById("gradeGrid"),home=document.getElementById("home"),page=document.getElementById("gradePage");
+ const selected=document.getElementById("selectedGrade"),description=document.getElementById("gradeDescription");
+ grades.forEach(function(g){
+  const b=document.createElement("button");b.type="button";b.className="grade-button "+g.c;
+  b.setAttribute("aria-label","Open "+g.title);
+  b.innerHTML='<span class="grade-icon" aria-hidden="true">'+g.icon+'</span><div class="grade-number">'+g.id+'</div><div class="grade-label">'+g.title+'</div><div class="grade-desc">'+g.desc+'</div>';
+  b.addEventListener("click",function(){
+   selected.textContent=g.title;
+   description.textContent="Welcome to your "+g.title+" maths adventure! Lessons and activities will be added in a future version.";
+   home.classList.add("hidden");page.classList.remove("hidden");window.scrollTo(0,0);
+  });
+  grid.appendChild(b);
+ });
+ document.getElementById("backButton").addEventListener("click",function(){page.classList.add("hidden");home.classList.remove("hidden");window.scrollTo(0,0)});
+})();
+</script>
+</body>
+</html>
